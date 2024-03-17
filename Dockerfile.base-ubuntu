@@ -21,7 +21,7 @@ EXPOSE 31416
 # Install
 RUN apt-get update && apt-get install -y --no-install-recommends \
 # Install PPA dependency
-    software-properties-common \
+    software-properties-common gpg-agent \
 # Install Time Zone Database
 	tzdata && \
 # Install BOINC Client
