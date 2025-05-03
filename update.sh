@@ -21,10 +21,6 @@ docker push boinc/client:amd
 docker build -t boinc/client:intel -f Dockerfile.intel .
 docker push boinc/client:intel
 
-# Intel Legacy
-docker build -t boinc/client:intel-legacy -f Dockerfile.intel-legacy .
-docker push boinc/client:intel-legacy
-
 # Multi GPU
 docker build -t boinc/client:multi-gpu -f Dockerfile.multi-gpu .
 docker push boinc/client:multi-gpu
