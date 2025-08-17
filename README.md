@@ -72,7 +72,6 @@ You can specialize the `boinc/client` image with either of the following tags to
 | [`base-alpine` ](Dockerfile.base-alpine) | Alpine based BOINC client.  **IMPORTANT:** Alpine uses musl instead of glibc, therefore projects might not support it. |
 | [`amd`](Dockerfile.amd) | AMD GPU-savvy BOINC client. Check the usage [below](#amd-gpu-savvy-boinc-client-usage). |
 | [`intel`](Dockerfile.intel) | Intel GPU-savvy BOINC client. It supports Broadwell (5th generation) CPUs and beyond. Check the usage [below](#intel-gpu-savvy-boinc-client-usage). |
-| [`intel-legacy`](Dockerfile.intel-legacy) | Legacy Intel GPU-savvy BOINC client (Sandybridge - 2nd Gen, Ivybridge - 3rd Gen, Haswell - 4th Gen). Check the usage [below](#legacy-intel-gpu-savvy-boinc-client-usage). |
 | [`multi-gpu`](Dockerfile.multi-gpu) | Intel & Nvidia-savvy BOINC client. Check the usage [below](#multi-gpu-savvy-boinc-client-usage). |
 | [`nvidia`](Dockerfile.nvidia) | NVIDIA-savvy (CUDA & OpenCL) BOINC client. Check the usage [below](#nvidia-savvy-boinc-client-usage). |
 | [`virtualbox`](Dockerfile.virtualbox) | VirtualBox-savvy BOINC client. Check the usage [below](#virtualbox-savvy-boinc-client-usage). |
@@ -117,22 +116,6 @@ docker run -d \
   -e BOINC_GUI_RPC_PASSWORD="123" \
   -e BOINC_CMD_LINE_OPTIONS="--allow_remote_gui_rpc" \
   boinc/client:intel
-```
-
-#### Legacy Intel GPU-savvy BOINC client usage
-- Install the Intel GPU Driver.
-- Run the following command:
-
-```sh
-docker run -d \
-  --name boinc \
-  --device /dev/dri:/dev/dri \
-  --net=host \
-  --pid=host \
-  -v /opt/appdata/boinc:/var/lib/boinc \
-  -e BOINC_GUI_RPC_PASSWORD="123" \
-  -e BOINC_CMD_LINE_OPTIONS="--allow_remote_gui_rpc" \
-  boinc/client:intel-legacy
 ```
 
 #### Multi GPU-savvy BOINC client usage
